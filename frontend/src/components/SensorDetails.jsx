@@ -22,10 +22,9 @@ export default function SensorDetails(props) {
                 <span>
                   Found networks:
                   <br />
-                  {transmitter.network_amont}
+                  {transmitter.network_amount}
                 </span>
                 <div className="network-list">
-                {/* {console.log(transmitter)} */}
                   {transmitter.network_array.map((network, _index) => {
                     return (
                       <Fragment key={_index}>
