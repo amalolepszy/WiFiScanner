@@ -1,15 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Login(props) {
-
-  function handleSpaceIdChange() {
-    props.handleSpaceIdChange();
-  }
-
-  function handleClientTokenChange() {
-    props.handleClientTokenChange();
-  }
-
   return (
     <div className="container login-container">
       <h1 id="login-header">Enter spaceID and clientToken</h1>
