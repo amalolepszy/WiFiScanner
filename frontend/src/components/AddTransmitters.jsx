@@ -30,7 +30,7 @@ export default function AddTransmitters(props) {
         newData.push(initialTransmitters[i - 1]);
       }
     }
-    // console.log(newData);
+    console.log(newData);
     setTransmitters(newData);
   };
 
@@ -78,9 +78,17 @@ export default function AddTransmitters(props) {
     evolve({ position: { elevation: noElevationIn2D } })
   );
 
-  // fetch transmitter data
+  // // fetch transmitter data
+  // useEffect(() => {
+  //   fetchTransmitters();
+  // }, []);
+
+  //fetch transmitter data every time interval
   useEffect(() => {
-    fetchTransmitters();
+    const interval = setInterval(() => {
+      fetchTransmitters();
+    }, 5000); //refresh every 5 sec
+    return () => clearInterval(interval);
   }, []);
 
   // render elements
@@ -109,9 +117,9 @@ export default function AddTransmitters(props) {
       tooltip: (d) => {
         return "Transmitter-" + d.transmitterId + " RSSI: " + d.rssi;
       },
-      onDrop: ({data, position}) => {
+      onDrop: ({ data, position }) => {
         handleUpdatePosition(data.transmitterId - 1, position);
-      }
+      },
     });
   }, [space, transmitterPos, autoElevation]);
 
