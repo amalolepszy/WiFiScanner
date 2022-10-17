@@ -77,6 +77,11 @@ button:hover {
   color:#F5EFE6;
 }
 
+.position-button {
+  margin: auto;
+  height: min-content;
+}
+
 .measure-container {
   margin-top: 4em;
 }
