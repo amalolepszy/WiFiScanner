@@ -65,7 +65,14 @@ client.on("connect", () => {
 // Receive data
 
 client.on("message", (topic, payload) => {
-  jsonData = JSON.parse(payload);
+  if(payload) {
+    try {
+      jsonData = JSON.parse(payload);
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
   const now = moment();
   console.log(now.subtract(10, "seconds").format());
 

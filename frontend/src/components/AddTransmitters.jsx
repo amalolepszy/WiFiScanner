@@ -50,7 +50,7 @@ export default function AddTransmitters(props) {
       if (foundArr) {
         return (newRssi.rssi = foundArr.rssi);
       } else {
-        return null;
+        return newRssi.rssi = null;
       }
     });
 
@@ -149,14 +149,18 @@ export default function AddTransmitters(props) {
             {space && (
               <div className="container">
                 <h3>Enter network SSID:</h3>
-                <input
-                  onChange={handleSetSsid}
-                  type="text"
-                  placeholder="my-ssid"
-                  value={ssid}
-                />
-                <button onClick={handleSsidSubmit}>Add</button>
-
+                <div className="input-group mb-3">
+                  <input
+                    onChange={handleSetSsid}
+                    type="text"
+                    placeholder="my-ssid"
+                    value={ssid}
+                    className="form-control"
+                  />
+                  <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" onClick={handleSsidSubmit}>Add</button>
+                  </div>
+                </div>
                 <h3>Set transmitter position:</h3>
                 {transmitterPos.map((tPos, index) => {
                   return (
@@ -204,6 +208,7 @@ export default function AddTransmitters(props) {
                         </div>
                         <div className="col" style={{ margin: "auto" }}>
                           <button
+                          className="btn btn-outline-secondary position-button"
                             onClick={() => {
                               space.enablePickingMode({
                                 onPick: ({ coordinates }) => {
