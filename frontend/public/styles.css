@@ -27,7 +27,8 @@ header {
 }
 
 .login-container {
-  margin-top: 15rem;
+  margin: auto;
+  margin-top: 10%;
 }
 
 .container-fluid{
