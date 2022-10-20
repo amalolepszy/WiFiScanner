@@ -18,9 +18,9 @@ const root = path.join(__dirname, "build");
 app.use(express.static(root));
 
 // when unknown path, reply with index.html
-app.use("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// app.use("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
 
 // Mongoose
 mongoose.connect("mongodb://localhost:27017/RssiScan");
