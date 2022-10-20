@@ -8,7 +8,7 @@ const path = require("path");
 const host = "raspberrypi.local";
 const port = "1883";
 const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
-const topic = "test/topic";
+const topic = "wifiscanner";
 
 // Express
 const app = express();
