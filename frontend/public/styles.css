@@ -44,7 +44,7 @@ header {
 }
 
 input {
-  border: 1px solid rgba(252, 252, 252, 0.4);
+  border: 1px solid #7895B2;
   background-color: white;
   width: 500px;
   border-radius: 3px;
@@ -63,13 +63,17 @@ input {
   outline: 0;
   background-color: white;
   /* background-color: #F5EFE6; */
-  border: 0;
+  border: 1px solid #7895B2;
   margin-top: 10px;
   padding: 10px 15px;
   color: #7895B2;
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
+}
+
+.login-text {
+  margin-top: 6rem;
 }
 
 button:hover {
