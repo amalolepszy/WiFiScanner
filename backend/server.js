@@ -2,7 +2,7 @@ const mqtt = require("mqtt");
 const mongoose = require("mongoose");
 const express = require("express");
 const moment = require("moment");
-const cors = require("cors");
+const path = require("path");
 
 // MQTT Data
 const host = "raspberrypi.local";
@@ -12,8 +12,11 @@ const topic = "test/topic";
 
 // Express
 const app = express();
-const router = express.Router();
-app.use(cors());
+
+// when unknown path, reply with index.html
+app.use("/*", (req, res) => {
+  res.sendFile(path.join);
+});
 
 // Mongoose
 mongoose.connect("mongodb://localhost:27017/RssiScan");
@@ -65,10 +68,10 @@ client.on("connect", () => {
 // Receive data
 
 client.on("message", (topic, payload) => {
-  if(payload) {
+  if (payload) {
     try {
       jsonData = JSON.parse(payload);
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -99,7 +102,7 @@ client.on("message", (topic, payload) => {
   );
 });
 
-app.get("/transmitter/:device_index", function (req, res) {
+app.get("/transmitter/:device_index", (req, res) => {
   //get 1 MOST RECENT entry with a device index
   Network.find({ device_index: req.params.device_index })
     .sort({ _id: -1 })
