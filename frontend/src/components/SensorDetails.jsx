@@ -40,7 +40,7 @@ export default function SensorDetails(props) {
                                       : network.rssi < -70 &&
                                         network.rssi >= -85
                                       ? "gold"
-                                      : network.rssi < -86 &&
+                                      : network.rssi < -85 &&
                                         network.rssi > -100
                                       ? "orange"
                                       : network.rssi <= -100
@@ -96,6 +96,6 @@ export default function SensorDetails(props) {
       </div>
     </div>
   )} else {
-    return <h3>Loading...</h3>
+    return <h3 style={{marginTop: "2rem"}}>Waiting for server connection...</h3>
   }
 }
