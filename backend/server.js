@@ -5,8 +5,8 @@ const moment = require("moment");
 const path = require("path");
 
 // MQTT Data
-const host = "raspberrypi.local";
-const port = "1883";
+const host = "localhost";
+const mqttPort = "1883";
 const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
 const topic = "wifiscanner";
 
@@ -19,11 +19,10 @@ app.use(express.static(root));
 
 // when unknown path, reply with index.html
 // app.use("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
+//   res.sendFile(path.join(__dirname, "build", "index.html")); });
 
 // Mongoose
-mongoose.connect("mongodb://localhost:27017/RssiScan");
+mongoose.connect("mongodb://localhost:27017/wifiscanner");
 
 const networkSchema = {
   time: Date,
@@ -51,7 +50,7 @@ const Network = mongoose.model("Network", networkSchema);
 
 // Connect to MQTT
 
-const connectUrl = "mqtt://" + host + ":" + port;
+const connectUrl = "mqtt://" + host + ":" + mqttPort;
 
 const client = mqtt.connect(connectUrl, {
   clientId,
