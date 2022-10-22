@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import AddTransmitters from "./AddTransmitters";
+import Footer from "./Footer";
 import Header from "./Header";
 import Login from "./Login";
-import AddTransmitters from "./AddTransmitters";
+
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -35,6 +37,7 @@ export default function App() {
           onClientTokenChange={handleClientTokenChange}
         />
       )}
+      <Footer/>
     </div>
   );
 }
