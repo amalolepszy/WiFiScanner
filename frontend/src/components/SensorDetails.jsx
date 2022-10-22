@@ -62,7 +62,7 @@ export default function SensorDetails(props) {
                                         : network.rssi < -70 &&
                                           network.rssi >= -85
                                         ? "gold"
-                                        : network.rssi < -86 &&
+                                        : network.rssi < -85 &&
                                           network.rssi > -100
                                         ? "orange"
                                         : network.rssi <= -100
@@ -75,7 +75,7 @@ export default function SensorDetails(props) {
                                     ? "Excellent"
                                     : network.rssi < -70 && network.rssi >= -85
                                     ? "Good"
-                                    : network.rssi < -86 && network.rssi > -100
+                                    : network.rssi < -85 && network.rssi > -100
                                     ? "Fair"
                                     : network.rssi <= -100
                                     ? "Poor"

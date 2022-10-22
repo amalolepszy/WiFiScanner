@@ -174,7 +174,7 @@ export default function AddTransmitters(props) {
                                   ? "green"
                                   : tPos.rssi < -70 && tPos.rssi >= -85
                                   ? "gold"
-                                  : tPos.rssi < -86 && tPos.rssi > -100
+                                  : tPos.rssi < -85 && tPos.rssi > -100
                                   ? "orange"
                                   : tPos.rssi <= -100
                                   ? "red"
@@ -192,7 +192,7 @@ export default function AddTransmitters(props) {
                                   ? "green"
                                   : tPos.rssi < -70 && tPos.rssi >= -85
                                   ? "gold"
-                                  : tPos.rssi < -86 && tPos.rssi > -100
+                                  : tPos.rssi < -85 && tPos.rssi > -100
                                   ? "orange"
                                   : tPos.rssi <= -100
                                   ? "red"
