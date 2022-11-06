@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-// import { initialTransmitters as transmitters } from "./initialData";
+import Footer from "./Footer";
 import WifiIcon from "@mui/icons-material/Wifi";
 
 export default function SensorDetails(props) {
@@ -94,6 +94,7 @@ export default function SensorDetails(props) {
           );
         })}
       </div>
+      <Footer/>
     </div>
   )} else {
     return <h3 style={{marginTop: "2rem"}}>Waiting for server connection...</h3>
