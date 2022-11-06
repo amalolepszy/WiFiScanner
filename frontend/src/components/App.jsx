@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddTransmitters from "./AddTransmitters";
-import Footer from "./Footer";
 import Header from "./Header";
 import Login from "./Login";
 
@@ -37,7 +36,6 @@ export default function App() {
           onClientTokenChange={handleClientTokenChange}
         />
       )}
-      <Footer/>
     </div>
   );
 }
