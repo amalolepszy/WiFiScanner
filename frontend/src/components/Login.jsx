@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 export default function Login(props) {
   return (
@@ -32,6 +33,7 @@ export default function Login(props) {
           <a href="https://www.smplrspace.com/">smplrspace.com</a>.
         </h4>
       </div>
+      <Footer/>
     </div>
   );
 }
