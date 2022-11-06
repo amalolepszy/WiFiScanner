@@ -175,17 +175,13 @@ export default function AddTransmitters(props) {
                           <h5
                             style={{
                               color:
-                                tPos.rssi >= -55
+                                tPos.rssi >= -70
                                   ? "green"
-                                  : tPos.rssi < -55 && tPos.rssi >= -65
+                                  : tPos.rssi < -70 && tPos.rssi >= -85
                                   ? "gold"
-                                  : tPos.rssi < -65 && tPos.rssi > -75
+                                  : tPos.rssi < -85 && tPos.rssi > -100
                                   ? "orange"
-                                  : tPos.rssi <= -75 && tPos.rssi > -85
-                                  ? "red"
-                                  : tPos.rssi <= -85 && tPos.rssi > -95
-                                  ? "red"
-                                  : tPos.rssi <= -95
+                                  : tPos.rssi <= -100
                                   ? "red"
                                   : "undefined",
                             }}
