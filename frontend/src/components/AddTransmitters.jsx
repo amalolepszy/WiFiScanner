@@ -105,9 +105,9 @@ export default function AddTransmitters(props) {
       anchor: "bottom",
       color: (d) =>
         d.rssi >= -30
-          ? "#2ECC71"
+          ? "#00CCCC"
           : d.rssi < -30 && d.rssi >= -50
-          ? "#80ff00"
+          ? "#2ECC71"
           : d.rssi < -50 && d.rssi >= -70
           ? "#F4D03F"
           : d.rssi <= -70 && d.rssi > -90
@@ -178,9 +178,9 @@ export default function AddTransmitters(props) {
                             style={{
                               color:
                                 tPos.rssi >= -30
-                                  ? "#2ECC71"
+                                  ? "#00CCCC"
                                   : tPos.rssi < -30 && tPos.rssi >= -50
-                                  ? "#80ff00"
+                                  ? "#2ECC71"
                                   : tPos.rssi < -50 && tPos.rssi >= -70
                                   ? "#F4D03F"
                                   : tPos.rssi <= -70 && tPos.rssi > -90
@@ -198,9 +198,9 @@ export default function AddTransmitters(props) {
                             style={{
                               color:
                               tPos.rssi >= -30
-                                  ? "#2ECC71"
+                                  ? "#00CCCC"
                                   : tPos.rssi < -30 && tPos.rssi >= -50
-                                  ? "#80ff00"
+                                  ? "#2ECC71"
                                   : tPos.rssi < -50 && tPos.rssi >= -70
                                   ? "#F4D03F"
                                   : tPos.rssi <= -70 && tPos.rssi > -90

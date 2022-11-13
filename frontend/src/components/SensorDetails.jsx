@@ -36,10 +36,10 @@ export default function SensorDetails(props) {
                                   style={{
                                     color:
                                       network.rssi >= -30
-                                        ? "#2ECC71"
+                                        ? "#00CCCC"
                                         : network.rssi < -30 &&
                                           network.rssi >= -50
-                                        ? "#80ff00"
+                                        ? "#2ECC71"
                                         : network.rssi < -50 &&
                                           network.rssi >= -70
                                         ? "#F4D03F"
@@ -61,10 +61,10 @@ export default function SensorDetails(props) {
                                     style={{
                                       color:
                                         network.rssi >= -30
-                                          ? "#2ECC71"
+                                          ? "#00CCCC"
                                           : network.rssi < -30 &&
                                             network.rssi >= -50
-                                          ? "#80ff00"
+                                          ? "#2ECC71"
                                           : network.rssi < -50 &&
                                             network.rssi >= -70
                                           ? "#F4D03F"
@@ -105,7 +105,6 @@ export default function SensorDetails(props) {
             );
           })}
         </div>
-        <Footer />
       </div>
     );
   } else {
