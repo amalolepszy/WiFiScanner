@@ -6,7 +6,7 @@ import Login from "./Login";
 
 export default function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [spaceId, setSpaceId] = useState("78b842f9-0416-43b3-9496-9a6668ab73ad");
+  const [spaceId, setSpaceId] = useState("3a756ba2-909e-4d1c-8cff-6ed19b5645a7");
   const [clientToken, setClientToken] = useState("pub_eb760fee77634cdab2fe31146fc371c2");
 
   function handleSpaceIdChange(event) {
