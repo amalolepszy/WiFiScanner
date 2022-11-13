@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Footer from "./Footer";
 import WifiIcon from "@mui/icons-material/Wifi";
 
 export default function SensorDetails(props) {
@@ -23,6 +22,10 @@ export default function SensorDetails(props) {
                     Found networks:
                     <br />
                     {transmitter.network_amount}
+                  <br/>
+                    Last fetched:
+                    <br/>
+                    {transmitter.time}
                   </span>
                   <div className="network-list">
                     {transmitter.network_array.map((network, _index) => {
