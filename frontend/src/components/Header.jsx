@@ -4,6 +4,6 @@ import WifiIcon from '@mui/icons-material/Wifi';
 
 export default function Header() {
   return <header>
-    <h1><WifiIcon /> WifiScanner</h1>
+    <h1><WifiIcon /> WiFiScanner</h1>
   </header>
 }
