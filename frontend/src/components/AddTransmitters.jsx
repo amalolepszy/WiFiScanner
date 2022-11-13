@@ -104,13 +104,15 @@ export default function AddTransmitters(props) {
       diameter: 1,
       anchor: "bottom",
       color: (d) =>
-        d.rssi >= -70
+        d.rssi >= -30
           ? "#2ECC71"
-          : d.rssi < -70 && d.rssi >= -85
+          : d.rssi < -30 && d.rssi >= -50
+          ? "#80ff00"
+          : d.rssi < -50 && d.rssi >= -70
           ? "#F4D03F"
-          : d.rssi <= -86 && d.rssi > -100
+          : d.rssi <= -70 && d.rssi > -90
           ? "#F39C12"
-          : d.rssi <= -100
+          : d.rssi <= -90
           ? "#FA1D0F"
           : "undefined",
 
@@ -175,14 +177,16 @@ export default function AddTransmitters(props) {
                           <h5
                             style={{
                               color:
-                                tPos.rssi >= -70
-                                  ? "green"
-                                  : tPos.rssi < -70 && tPos.rssi >= -85
-                                  ? "gold"
-                                  : tPos.rssi < -85 && tPos.rssi > -100
-                                  ? "orange"
-                                  : tPos.rssi <= -100
-                                  ? "red"
+                                tPos.rssi >= -30
+                                  ? "#2ECC71"
+                                  : tPos.rssi < -30 && tPos.rssi >= -50
+                                  ? "#80ff00"
+                                  : tPos.rssi < -50 && tPos.rssi >= -70
+                                  ? "#F4D03F"
+                                  : tPos.rssi <= -70 && tPos.rssi > -90
+                                  ? "#F39C12"
+                                  : tPos.rssi <= -90
+                                  ? "#FA1D0F"
                                   : "undefined",
                             }}
                           >
@@ -193,14 +197,16 @@ export default function AddTransmitters(props) {
                           <div
                             style={{
                               color:
-                                tPos.rssi >= -70
-                                  ? "green"
-                                  : tPos.rssi < -70 && tPos.rssi >= -85
-                                  ? "gold"
-                                  : tPos.rssi < -85 && tPos.rssi > -100
-                                  ? "orange"
-                                  : tPos.rssi <= -100
-                                  ? "red"
+                              tPos.rssi >= -30
+                                  ? "#2ECC71"
+                                  : tPos.rssi < -30 && tPos.rssi >= -50
+                                  ? "#80ff00"
+                                  : tPos.rssi < -50 && tPos.rssi >= -70
+                                  ? "#F4D03F"
+                                  : tPos.rssi <= -70 && tPos.rssi > -90
+                                  ? "#F39C12"
+                                  : tPos.rssi <= -90
+                                  ? "#FA1D0F"
                                   : "undefined",
                             }}
                           >

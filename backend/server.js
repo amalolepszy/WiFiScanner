@@ -7,7 +7,7 @@ const path = require("path");
 // MQTT Data
 const host = "localhost";
 const mqttPort = "1883";
-const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
+const clientId = `mqtt_service`;
 const topic = "wifiscanner";
 
 // Express
@@ -16,10 +16,6 @@ const app = express();
 //serve static files
 const root = path.join(__dirname, "build");
 app.use(express.static(root));
-
-// when unknown path, reply with index.html
-// app.use("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "build", "index.html")); });
 
 // Mongoose
 mongoose.connect("mongodb://localhost:27017/wifiscanner");
