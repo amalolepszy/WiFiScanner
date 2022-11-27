@@ -45,7 +45,6 @@ const networkSchema = {
 const Network = mongoose.model("Network", networkSchema);
 
 // Connect to MQTT
-
 const connectUrl = "mqtt://" + host + ":" + mqttPort;
 
 const client = mqtt.connect(connectUrl, {
@@ -65,7 +64,6 @@ client.on("connect", () => {
 });
 
 // Receive data
-
 client.on("message", (topic, payload) => {
   if (payload) {
     try {
