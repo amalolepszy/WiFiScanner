@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import WifiIcon from "@mui/icons-material/Wifi";
+import { GetElementColorForRSSI } from "./utils";
+
 
 export default function SensorDetails(props) {
   if (props.transmitters.length === 5) {
@@ -37,21 +39,7 @@ export default function SensorDetails(props) {
                               <div className="col">
                                 <h5
                                   style={{
-                                    color:
-                                      network.rssi >= -30
-                                        ? "#00CCCC"
-                                        : network.rssi < -30 &&
-                                          network.rssi >= -50
-                                        ? "#2ECC71"
-                                        : network.rssi < -50 &&
-                                          network.rssi >= -70
-                                        ? "#F4D03F"
-                                        : network.rssi <= -70 &&
-                                          network.rssi > -90
-                                        ? "#F39C12"
-                                        : network.rssi <= -90
-                                        ? "#FA1D0F"
-                                        : "undefined",
+                                    color: GetElementColorForRSSI(network.rssi)
                                   }}
                                 >
                                   SSID: {network.ssid} <br />
@@ -62,21 +50,7 @@ export default function SensorDetails(props) {
                                 <div style={{ textAlign: "center" }}>
                                   <h4
                                     style={{
-                                      color:
-                                        network.rssi >= -30
-                                          ? "#00CCCC"
-                                          : network.rssi < -30 &&
-                                            network.rssi >= -50
-                                          ? "#2ECC71"
-                                          : network.rssi < -50 &&
-                                            network.rssi >= -70
-                                          ? "#F4D03F"
-                                          : network.rssi <= -70 &&
-                                            network.rssi > -90
-                                          ? "#F39C12"
-                                          : network.rssi <= -90
-                                          ? "#FA1D0F"
-                                          : "undefined",
+                                      color: GetElementColorForRSSI(network.rssi)
                                     }}
                                   >
                                     <WifiIcon fontSize="large" />{" "}
