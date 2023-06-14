@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { map, evolve } from "ramda";
 import { initialTransmitters, initialPos } from "./initialData";
+import { GetElementColorForRSSI } from "./utils";
 
 import Viewer from "./Viewer";
 import WifiIcon from "@mui/icons-material/Wifi";
@@ -11,13 +12,12 @@ const INITIAL_MODE = "3d";
 export default function AddTransmitters(props) {
   const [space, setSpace] = useState();
   const [mode, setMode] = useState(INITIAL_MODE);
-
   const [ssid, setSsid] = useState("");
-
   const [transmitters, setTransmitters] = useState([initialTransmitters]);
+  const [transmitterPos, setTransmitterPos] = useState(initialPos);
 
   // fetch most recent data for each transmitter
-  const fetchTransmitters = async () => {
+  async function fetchTransmitters() {
     const newData = [];
     for (let i = 1; i <= 5; i++) {
       const data = await fetch("/transmitter/" + i);
@@ -57,8 +57,6 @@ export default function AddTransmitters(props) {
     setTransmitterPos(newRssiArray);
   }
 
-  const [transmitterPos, setTransmitterPos] = useState(initialPos);
-
   function handleUpdatePosition(transmitter_index, coordinates) {
     let newPos = [...transmitterPos];
     newPos[transmitter_index].position = coordinates;
@@ -74,14 +72,10 @@ export default function AddTransmitters(props) {
     (value) => (mode === "3d" ? value : 0),
     [mode]
   );
+
   const autoElevation = map(
     evolve({ position: { elevation: noElevationIn2D } })
   );
-
-  // // fetch transmitter data
-  // useEffect(() => {
-  //   fetchTransmitters();
-  // }, []);
 
   //fetch transmitter data every time interval
   useEffect(() => {
@@ -103,18 +97,7 @@ export default function AddTransmitters(props) {
       data: autoElevation(transmitterPos),
       diameter: 1,
       anchor: "bottom",
-      color: (d) =>
-        d.rssi >= -30
-          ? "#00CCCC"
-          : d.rssi < -30 && d.rssi >= -50
-          ? "#2ECC71"
-          : d.rssi < -50 && d.rssi >= -70
-          ? "#F4D03F"
-          : d.rssi <= -70 && d.rssi > -90
-          ? "#F39C12"
-          : d.rssi <= -90
-          ? "#FA1D0F"
-          : "undefined",
+      color: (d) => GetElementColorForRSSI(d.rssi),
 
       tooltip: (d) => {
         return "Transmitter-" + d.transmitterId + " RSSI: " + d.rssi;
@@ -128,7 +111,7 @@ export default function AddTransmitters(props) {
   return (
     <div className="container-fluid measure-container">
       <div className="row viewer-row">
-        <div className="col-lg-7">
+        <div className="col-lg-7 main-column">
           <Viewer
             mode={INITIAL_MODE}
             onReady={onReady}
@@ -137,8 +120,9 @@ export default function AddTransmitters(props) {
             clientToken={props.clientToken}
           />
         </div>
-        <div className="col-lg-5">
+        <div className="col-lg-5 main-column">
           <div>
+            {/* Show text when viewer is disabled */}
             {!space && (
               <div className="start-viewer-heading-div">
                 <h2 className="start-viewer-heading">
@@ -173,51 +157,29 @@ export default function AddTransmitters(props) {
                   return (
                     <div className="container">
                       <div className="row add-transmitter">
-                        <div className="col" style={{ margin: "auto" }}>
+                        <div className="col-md-auto">
                           <h5
                             style={{
-                              color:
-                                tPos.rssi >= -30
-                                  ? "#00CCCC"
-                                  : tPos.rssi < -30 && tPos.rssi >= -50
-                                  ? "#2ECC71"
-                                  : tPos.rssi < -50 && tPos.rssi >= -70
-                                  ? "#F4D03F"
-                                  : tPos.rssi <= -70 && tPos.rssi > -90
-                                  ? "#F39C12"
-                                  : tPos.rssi <= -90
-                                  ? "#FA1D0F"
-                                  : "undefined",
+                              color: GetElementColorForRSSI(tPos.rssi),
                             }}
                           >
                             Transmitter-{tPos.transmitterId}
                           </h5>
                         </div>
-                        <div className="col" style={{ margin: "auto" }}>
+                        <div className="col-md-auto">
                           <div
                             style={{
-                              color:
-                              tPos.rssi >= -30
-                                  ? "#00CCCC"
-                                  : tPos.rssi < -30 && tPos.rssi >= -50
-                                  ? "#2ECC71"
-                                  : tPos.rssi < -50 && tPos.rssi >= -70
-                                  ? "#F4D03F"
-                                  : tPos.rssi <= -70 && tPos.rssi > -90
-                                  ? "#F39C12"
-                                  : tPos.rssi <= -90
-                                  ? "#FA1D0F"
-                                  : "undefined",
+                              color: GetElementColorForRSSI(tPos.rssi),
                             }}
                           >
                             <WifiIcon fontSize="large" />
                           </div>
                         </div>
-                        <div className="col" style={{ margin: "auto" }}>
+                        <div className="col-md-auto">
                           <h6>RSSI:</h6>
                           <p>{tPos.rssi}</p>
                         </div>
-                        <div className="col" style={{ margin: "auto" }}>
+                        <div className="col-md-auto">
                           <button
                             className="btn btn-outline-secondary position-button"
                             onClick={() => {
